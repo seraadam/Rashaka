@@ -1,6 +1,7 @@
 package com.fitness.rashaka.activities;
 
 import android.animation.ArgbEvaluator;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -141,20 +142,26 @@ public class firstActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         mViewPager.setBackgroundColor(color1);
+                        mPreviousBtn.setVisibility(View.GONE);
                         break;
                     case 1:
                         mViewPager.setBackgroundColor(color2);
+                        mPreviousBtn.setVisibility(View.VISIBLE);
                         break;
                     case 2:
                         mViewPager.setBackgroundColor(color3);
+                        mPreviousBtn.setVisibility(View.VISIBLE);
                         break;
                 }
+
+
 
                 mNextBtn.setVisibility(position == 2 ? View.GONE : View.VISIBLE);
 
                 mFinishBtn.setVisibility(position == 2 ? View.VISIBLE : View.GONE);
 
-                mPreviousBtn.setVisibility(position == 0 ? View.GONE : View.VISIBLE);
+
+
             }
 
             @Override
@@ -184,10 +191,12 @@ public class firstActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-
+//TODO : After click button finish redirect to next activity
+                Intent intent = new Intent(firstActivity.this, resultsActivity.class);
+                startActivity(intent);
             }
         });
-        //TODO : After click button finish redirect to next activity
+
     }
 
 

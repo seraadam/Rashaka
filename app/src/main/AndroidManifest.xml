@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.fitness.rashaka" >
+    package="com.fitness.rashaka">
 
     <application
-
-        android:label="@string/app_name"
         android:icon="@drawable/ic_launcher"
-        android:theme="@style/MyTheme"
-         >
+        android:label="@string/app_name"
+        android:theme="@style/MyTheme">
         <activity
             android:name=".activities.firstActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.resultsActivity"
+            android:label="@string/title_activity_results"
+            android:parentActivityName=".activities.firstActivity"
+            android:theme="@style/MyTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fitness.rashaka.activities.firstActivity" />
         </activity>
     </application>
 
