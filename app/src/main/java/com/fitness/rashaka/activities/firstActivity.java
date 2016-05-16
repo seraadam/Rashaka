@@ -142,7 +142,7 @@ public class firstActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         mViewPager.setBackgroundColor(color1);
-                        mPreviousBtn.setVisibility(View.GONE);
+
                         break;
                     case 1:
                         mViewPager.setBackgroundColor(color2);
