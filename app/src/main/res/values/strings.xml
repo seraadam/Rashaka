@@ -40,10 +40,34 @@
     <string name="weight">Weight</string>
     <string name="height">Height</string>
     <string name="age">Age</string>
+    <string name="activity">Activity Level</string>
     <string name="gender">Gender</string>
     <string name="Male">Male</string>
     <string name="Female">Female</string>
     <string name="results">Your BMI is </string>
-    <string name="KG"> KG </string>
-    <string name="cm"> cm </string>
+
+    <string name="spinneractivity">Moderately Active</string>
+    <string-array name="activity">
+        <item>Lightly Active</item>
+        <item>Moderately Active</item>
+        <item>Very Active</item>
+        <item>Extremely Active</item>
+
+    </string-array>
+
+    <string name="spinnerheight">cm</string>
+    <string-array name="height">
+        <item>cm</item>
+        <item>inch</item>
+    </string-array>
+
+    <string name="spinnerweight">kg</string>
+    <string-array name="weight">
+    <item>kg</item>
+        <item>pound</item>
+
+    </string-array>
+
+
+
 </resources>

@@ -105,7 +105,7 @@ public class firstActivity extends AppCompatActivity {
 
         mViewPager.setCurrentItem(page);
 
-
+        mViewPager.setOffscreenPageLimit(2);
 
         zero = (ImageView) findViewById(R.id.intro_indicator_0);
         one = (ImageView) findViewById(R.id.intro_indicator_1);

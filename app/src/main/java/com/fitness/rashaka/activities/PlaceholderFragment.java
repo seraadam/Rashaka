@@ -51,7 +51,7 @@ public class PlaceholderFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_pager, container, false);
         TextView textView = (TextView) rootView.findViewById(R.id.section_label);
 
-        textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+    textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
 
         img = (ImageView) rootView.findViewById(R.id.section_img);
         img.setBackgroundResource(bgs[getArguments().getInt(ARG_SECTION_NUMBER) - 1]);

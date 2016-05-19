@@ -61,7 +61,7 @@ public class resultsActivity extends AppCompatActivity
 
         if (savedInstanceState == null) {
             navigationView.getMenu().performIdentifierAction(R.id.nav_camera, 0);
-
+            mTitle = "BMI input";
 
         }
 
@@ -93,7 +93,7 @@ public class resultsActivity extends AppCompatActivity
             getMenuInflater().inflate(R.menu.results, menu);
 
 
-            restoreActionBar();
+          //  restoreActionBar();
             return true;
         }
 
@@ -102,8 +102,13 @@ public class resultsActivity extends AppCompatActivity
 
     public void restoreActionBar () {
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowTitleEnabled( true );
-        actionBar.setTitle( mTitle );
+        if (actionBar != null) {
+            actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+            actionBar.setDisplayShowTitleEnabled(true);
+            actionBar.setTitle(mTitle);
+            Log.e("action bar title " ,mTitle.toString());
+        }
+
     }
 
     @Override

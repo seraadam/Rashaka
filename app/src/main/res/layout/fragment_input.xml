@@ -1,66 +1,252 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-    tools:context="com.fitness.rashaka.activities.InputFragment">
 
+    tools:context=".activities.resultsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:id="@+id/weight_la"
+        >
 
             <TextView
                 android:text="@string/weight"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"/>
-            <EditText
-                android:layout_width="wrap_content"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/dark_black"
+                android:layout_weight="1"
+                android:gravity="center"
+                />
+
+        <EditText
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/weight"
-                android:inputType="number"
-                android:ems="20"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:layout_weight="1"
+                android:gravity="center"
+android:textColor="@color/amber"
                 />
-            <TextView
-                android:text="@string/KG"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"/>
+
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/wspinner"
+            android:layout_weight="0.65"
+            android:prompt="@string/spinnerweight"
+            android:gravity="center"
+            android:spinnerMode="dropdown" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:layout_below="@+id/weight_la"
+        android:id="@+id/linearLayout">
 
             <TextView
                 android:text="@string/height"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"/>
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/dark_black"
+                android:layout_weight="1"
+                android:gravity="center"
+
+                />
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/height"
-                android:inputType="number"
-                android:ems="20"
-                />
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/amber" />
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/hspinner"
+            android:layout_weight="0.65"
+            android:prompt="@string/spinnerheight"
+            android:spinnerMode="dropdown"
+            android:gravity="center"
+             />
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:weightSum="3"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout3">
 
-            <TextView
-                android:text="@string/cm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"/>
+        <TextView
+            android:text="@string/age"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/dark_black"
+            android:layout_weight="1"
+            android:gravity="center"
+
+            />
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/age"
+            android:inputType="number"
+            android:ems="2"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/amber" />
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton"
+            android:layout_weight="0.25"
+            android:layout_gravity="center"
+            android:src="@drawable/female_selected" />
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton3"
+            android:layout_weight="0.10"
+            android:src="@drawable/ic_separator"/>
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton2"
+            android:layout_weight="0.25"
+            android:layout_gravity="center"
+            android:src="@drawable/male_unselected" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:weightSum="2"
+        android:layout_below="@+id/linearLayout3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout4">
+
+        <TextView
+            android:text="@string/activity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/dark_black"
+            android:layout_weight="0.70"
+            android:layout_gravity="center"
+            android:gravity="center"
+
+            />
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/aspinner"
+            android:layout_weight="0.65"
+            android:prompt="@string/spinneractivity"
+            android:spinnerMode="dropdown"
+            android:gravity="center"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="3"
+        android:layout_below="@+id/linearLayout4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout2">
+
+        <!--
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageButton"
+                    android:layout_weight="0.25"
+                    android:layout_gravity="center"
+                    android:src="@drawable/female_selected" />
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageButton3"
+                    android:layout_weight="0.10"
+                    android:src="@drawable/ic_separator"/>
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageButton2"
+                    android:layout_weight="0.25"
+                    android:layout_gravity="center"
+                    android:src="@drawable/male_unselected" /> -->
+    </LinearLayout>
 
     <Button
         android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Calculate"/>
+        android:text="Calculate"
+        android:layout_marginTop="59dp"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_centerHorizontal="true" />
 
-
-    <EditText
-        android:id="@+id/results"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/results"/>
+        android:orientation="horizontal"
+        android:layout_below="@+id/result">
 
-</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/results"
+            android:id="@+id/textView2"
+            android:layout_gravity="start|top" />
+
+        <EditText
+            android:id="@+id/results"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="0"
+            android:autoText="false"
+            android:enabled="false"
+            android:focusable="false"
+            android:layout_toRightOf="@+id/textView2"
+             />
+    </LinearLayout>
+
+
+
+</RelativeLayout>
