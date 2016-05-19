@@ -56,8 +56,8 @@ public class InputFragment extends Fragment {
         results = (EditText) v.findViewById(R.id.results);
         result = (Button) v.findViewById(R.id.result);
 
-        male = (ImageButton) v.findViewById(R.id.imageButton);
-        female = (ImageButton) v.findViewById(R.id.imageButton2);
+        male = (ImageButton) v.findViewById(R.id.imageButton2);
+        female = (ImageButton) v.findViewById(R.id.imageButton);
         male.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,7 +120,7 @@ public class InputFragment extends Fragment {
 //        android.R.layout.simple_spinner_item);
                 R.layout.spinner_item_text);
 //    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        aadapter.setDropDownViewResource(R.layout.spinner_item_text);
+        aadapter.setDropDownViewResource(R.layout.spinner_item_text2);
         aspinner.setAdapter(aadapter);
         aspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
