@@ -106,7 +106,7 @@ public class InputFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(position==1) {
-                    Toast.makeText(getContext(), String.valueOf(wspinner.getSelectedItem()), Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getContext(), String.valueOf(wspinner.getSelectedItem()), Toast.LENGTH_LONG).show();
                     //.4535
                 }
             }
@@ -164,15 +164,22 @@ public class InputFragment extends Fragment {
             Log.e("height selected unit",String.valueOf(hspinner.getSelectedItem()));
 
             if((String.valueOf(wspinner.getSelectedItem()).equals("pound")) && ((String.valueOf(hspinner.getSelectedItem()).equals("feet"))) ) {
-                valueweight = valueweight * 703;
-                valueheight = valueheight * 12;
+               // valueweight = valueweight * 703;
+               // valueheight = valueheight * 12;
+
+                valueweight = valueweight * 0.45359237;
+
+                int feets = (int) valueheight ;
+                double inches = valueheight - feets ;
+                valueheight= ( feets * 0.3048) + (inches * 0.0254) ;
+
                 bmi = (valueweight / (valueheight * valueheight));
-                results.setText( String.format( "%.1f", bmi ) );
+                results.setText( String.format( "%.2f", bmi ) );
             }
             else if((String.valueOf(wspinner.getSelectedItem()).equals("kg")) && ((String.valueOf(hspinner.getSelectedItem()).equals("meter"))) )
             {
                 bmi = (valueweight / (valueheight * valueheight));
-                results.setText( String.format( "%.1f", bmi ) );
+                results.setText( String.format( "%.2f", bmi ) );
             }
 
             else

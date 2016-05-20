@@ -45,6 +45,8 @@
     <string name="Male">Male</string>
     <string name="Female">Female</string>
     <string name="results">Your BMI is </string>
+    <string name="results1">Your Ideal weight should be </string>
+    <string name="results2">To reach the ideal weight you chould consume calories/Day </string>
 
     <string name="spinneractivity">Moderately Active</string>
     <string-array name="activity">

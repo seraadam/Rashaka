@@ -178,56 +178,67 @@
             android:gravity="center"
              />
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="49dp"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:weightSum="3"
-        android:layout_below="@+id/linearLayout4"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/linearLayout2">
+    <!-- <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="49dp"
+      android:orientation="horizontal"
+      android:gravity="center"
+      android:weightSum="3"
+      android:layout_below="@+id/linearLayout4"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentStart="true"
+      android:id="@+id/linearLayout2">
 
-        <!--
-                <ImageButton
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageButton"
-                    android:layout_weight="0.25"
-                    android:layout_gravity="center"
-                    android:src="@drawable/female_selected" />
 
-                <ImageButton
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageButton3"
-                    android:layout_weight="0.10"
-                    android:src="@drawable/ic_separator"/>
+              <ImageButton
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/imageButton"
+                  android:layout_weight="0.25"
+                  android:layout_gravity="center"
+                  android:src="@drawable/female_selected" />
 
-                <ImageButton
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageButton2"
-                    android:layout_weight="0.25"
-                    android:layout_gravity="center"
-                    android:src="@drawable/male_unselected" /> -->
-    </LinearLayout>
+              <ImageButton
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/imageButton3"
+                  android:layout_weight="0.10"
+                  android:src="@drawable/ic_separator"/>
+
+              <ImageButton
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/imageButton2"
+                  android:layout_weight="0.25"
+                  android:layout_gravity="center"
+                  android:src="@drawable/male_unselected" />
+  </LinearLayout>-->
 
     <Button
         android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Calculate"
-        android:layout_marginTop="59dp"
-        android:layout_below="@+id/linearLayout2"
+        android:layout_below="@+id/linearLayout4"
         android:layout_centerHorizontal="true" />
+    <SurfaceView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/view"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/light_blue"
+        android:layout_below = "@+id/result"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@+id/result">
+        android:orientation="vertical"
+        android:layout_below="@+id/view"
+        android:id="@+id/linearLayout5">
+
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -249,6 +260,60 @@
              />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/linearLayout5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout6">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/results1"
+            android:id="@+id/textView3"
+            android:layout_gravity="start|top" />
+
+        <EditText
+            android:id="@+id/results2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="0"
+            android:autoText="false"
+            android:enabled="false"
+            android:focusable="false"
+            android:layout_toRightOf="@+id/textView3"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/linearLayout6"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/results2"
+            android:id="@+id/textView4"
+            android:layout_gravity="start|top" />
+
+        <EditText
+            android:id="@+id/results3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="0"
+            android:autoText="false"
+            android:enabled="false"
+            android:focusable="false"
+            android:layout_toRightOf="@+id/textView4"
+            />
+    </LinearLayout>
 
 </RelativeLayout>
