@@ -3,6 +3,7 @@ package com.fitness.rashaka.activities;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,18 +79,36 @@ public class InputFragment extends Fragment {
         hspinner = (Spinner) v.findViewById(R.id.hspinner);
         aspinner = (Spinner) v.findViewById(R.id.aspinner);
 
-
+//set the weight value
         ArrayAdapter<CharSequence> wadapter = ArrayAdapter.createFromResource(getContext(), R.array.weight,
 //        android.R.layout.simple_spinner_item);
                 R.layout.spinner_item_text);
 //    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         wadapter.setDropDownViewResource(R.layout.spinner_item_text);
         wspinner.setAdapter(wadapter);
+       //set the height value
+        ArrayAdapter<CharSequence> hadapter = ArrayAdapter.createFromResource(getContext(), R.array.height,
+//        android.R.layout.simple_spinner_item);
+                R.layout.spinner_item_text);
+//    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        hadapter.setDropDownViewResource(R.layout.spinner_item_text);
+        hspinner.setAdapter(hadapter);
+
+//set the level of activity value
+        ArrayAdapter<CharSequence> aadapter = ArrayAdapter.createFromResource(getContext(), R.array.activity,
+//        android.R.layout.simple_spinner_item);
+                R.layout.spinner_item_text);
+//    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        aadapter.setDropDownViewResource(R.layout.spinner_item_text2);
+        aspinner.setAdapter(aadapter);
+
         wspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-
+                if(position==1) {
+                    Toast.makeText(getContext(), String.valueOf(wspinner.getSelectedItem()), Toast.LENGTH_LONG).show();
+                    //.4535
+                }
             }
 
             @Override
@@ -98,12 +117,6 @@ public class InputFragment extends Fragment {
             }
         });
 
-        ArrayAdapter<CharSequence> hadapter = ArrayAdapter.createFromResource(getContext(), R.array.height,
-//        android.R.layout.simple_spinner_item);
-                R.layout.spinner_item_text);
-//    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        hadapter.setDropDownViewResource(R.layout.spinner_item_text);
-        hspinner.setAdapter(hadapter);
         hspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -116,12 +129,6 @@ public class InputFragment extends Fragment {
             }
         });
 
-        ArrayAdapter<CharSequence> aadapter = ArrayAdapter.createFromResource(getContext(), R.array.activity,
-//        android.R.layout.simple_spinner_item);
-                R.layout.spinner_item_text);
-//    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        aadapter.setDropDownViewResource(R.layout.spinner_item_text2);
-        aspinner.setAdapter(aadapter);
         aspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -133,38 +140,58 @@ public class InputFragment extends Fragment {
 
             }
         });
+
+
         result.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-               try {
-
-                   calculate();
-
-
-                   valueheight = Double.parseDouble(height.getText().toString().replace(",", ""));
-
-                   valueheight = valueheight / 100;
-
-                   valueweight = Double.parseDouble(weight.getText().toString());
-
-                   bmi = (valueweight / (valueheight * valueheight));
-
-                   results.setText( String.format( "%.1f", bmi ) );
-                   //results.setText(Double.toString(bmi));
-
-
-               }
-               catch (NumberFormatException e){
-                   Toast.makeText(getContext(),"please enter values",Toast.LENGTH_LONG).show();
-               }
+              calculate();
             }
         });
         return v;
     }
 
     private void calculate(){
+//BMI calculate
+        try {
 
+            valueheight = Double.parseDouble(height.getText().toString().replace(",", ""));
+
+            valueweight = Double.parseDouble(weight.getText().toString().replace(",", ""));
+
+            Log.e("weight selected unit",String.valueOf(wspinner.getSelectedItem()));
+            Log.e("height selected unit",String.valueOf(hspinner.getSelectedItem()));
+
+            if((String.valueOf(wspinner.getSelectedItem()).equals("pound")) && ((String.valueOf(hspinner.getSelectedItem()).equals("feet"))) ) {
+                valueweight = valueweight * 703;
+                valueheight = valueheight * 12;
+                bmi = (valueweight / (valueheight * valueheight));
+                results.setText( String.format( "%.1f", bmi ) );
+            }
+            else if((String.valueOf(wspinner.getSelectedItem()).equals("kg")) && ((String.valueOf(hspinner.getSelectedItem()).equals("meter"))) )
+            {
+                bmi = (valueweight / (valueheight * valueheight));
+                results.setText( String.format( "%.1f", bmi ) );
+            }
+
+            else
+            { Toast.makeText(getContext(),"please use pound with feet and kilogram with meter",Toast.LENGTH_LONG).show();}
+            //0.0254 devide feet over 12 to get inch
+
+            //else valueheight = valueheight / 100;
+
+
+            //results.setText(Double.toString(bmi));
+
+
+        }
+        catch (NumberFormatException e){
+            Toast.makeText(getContext(),"please enter valid values",Toast.LENGTH_LONG).show();
+        }
+
+    //perfect weight calculate
+    //needed calories calculate
 /*
 * This calculator provides an estimate of your total daily caloric expenditure by multiplying the Harris-Benedict equations for basal metabolic rate by an "Activity Level Factor" that accounts for your daily physical activity levels and the thermic effect of food. The equations used by this calculator are shown below.
 

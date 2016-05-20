@@ -40,7 +40,7 @@
     <string name="weight">Weight</string>
     <string name="height">Height</string>
     <string name="age">Age</string>
-    <string name="activity">Activity Level</string>
+    <string name="active">Activity Level</string>
     <string name="gender">Gender</string>
     <string name="Male">Male</string>
     <string name="Female">Female</string>
@@ -57,13 +57,13 @@
 
     <string name="spinnerheight">cm</string>
     <string-array name="height">
-        <item>cm</item>
-        <item>inch</item>
+        <item>meter</item>
+        <item>feet</item>
     </string-array>
 
     <string name="spinnerweight">kg</string>
     <string-array name="weight">
-    <item>kg</item>
+        <item>kg</item>
         <item>pound</item>
 
     </string-array>
