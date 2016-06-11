@@ -153,12 +153,17 @@ public class InputFragment extends Fragment {
     }
 
     private void calculate(){
+
+      //  String
 //BMI calculate
         try {
 
             valueheight = Double.parseDouble(height.getText().toString().replace(",", ""));
 
             valueweight = Double.parseDouble(weight.getText().toString().replace(",", ""));
+
+            Log.e("weight selected unit",String.valueOf(valueheight));
+            Log.e("height selected unit",String.valueOf(valueweight));
 
             Log.e("weight selected unit",String.valueOf(wspinner.getSelectedItem()));
             Log.e("height selected unit",String.valueOf(hspinner.getSelectedItem()));
@@ -174,16 +179,23 @@ public class InputFragment extends Fragment {
                 valueheight= ( feets * 0.3048) + (inches * 0.0254) ;
 
                 bmi = (valueweight / (valueheight * valueheight));
+
+                Log.e("bmi pound",String.valueOf(bmi));
+
+
                 results.setText( String.format( "%.2f", bmi ) );
             }
-            else if((String.valueOf(wspinner.getSelectedItem()).equals("kg")) && ((String.valueOf(hspinner.getSelectedItem()).equals("meter"))) )
+            else if((String.valueOf(wspinner.getSelectedItem()).equals("kg")) && ((String.valueOf(hspinner.getSelectedItem()).equals("cm "))) )
             {
+                valueheight = valueheight/ 100;
                 bmi = (valueweight / (valueheight * valueheight));
+                Log.e("bmi",String.valueOf(bmi));
+
                 results.setText( String.format( "%.2f", bmi ) );
             }
 
             else
-            { Toast.makeText(getContext(),"please use pound with feet and kilogram with meter",Toast.LENGTH_LONG).show();}
+            { Toast.makeText(getContext(),"please use pound with feet and kilogram with cm",Toast.LENGTH_LONG).show();}
             //0.0254 devide feet over 12 to get inch
 
             //else valueheight = valueheight / 100;

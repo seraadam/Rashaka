@@ -59,7 +59,7 @@
 
     <string name="spinnerheight">cm</string>
     <string-array name="height">
-        <item>meter</item>
+        <item>cm</item>
         <item>feet</item>
     </string-array>
 
